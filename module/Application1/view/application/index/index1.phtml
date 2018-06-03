@@ -1,0 +1,26 @@
+<h1>Well come to index 1 page</h1>
+<div class="container">
+   <div class="row">
+         <div class="col-md-6 col-md-offset-3">
+             <table class="table table-condensed">
+                 <caption><a class="btn btn" href="<?php echo $this->url('add'); ?>">ADD DATA</a></caption>
+                 <thead>
+                 <tr><th>Name</th></tr>
+                 </thead>
+                 <tbody>
+                      <?php foreach($data as $row):?>
+                      <tr>
+                           <td><?php echo $row->id?></td>
+                           <td><?php echo $row->name?></td>
+                          <td><a href="<?php echo $this->url('edit',array('id'=>$row->id),true)?>">Edit</a></td>
+                          <td><a href="<?php echo $this->url('del',array('id'=>$row->id),true)?>">Del</a></td>
+                      </tr>
+                     <?php endforeach; ?>
+                 </tbody>
+
+             </table>
+        </div> 
+    
+   </div>
+
+</div>

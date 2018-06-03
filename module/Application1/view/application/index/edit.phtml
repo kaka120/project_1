@@ -1,0 +1,44 @@
+
+
+<div class="container">
+   <div class="row">
+     <div class="col-md-6 col-md-offset-3">
+       <?php 
+
+            $form = $this->form;
+            $form->prepare();
+            $form->setAttribute('action', $this->url('edit',array(),true));
+
+            // Set the method attribute for the form
+            $form->setAttribute('method', 'post');
+
+            // Get the form label plugin
+            $formLabel = $this->plugin('formLabel');
+
+            // Render the opening tag
+            echo $this->form()->openTag($form);
+        ?>
+        <div class="form_element">
+        <?php
+            $name = $form->get('id');
+            echo $formLabel->openTag().$name->getOption('label');
+            $name->setvalue($row['id']);            
+            echo $this->formInput($name);
+            echo $this->formElementErrors($name);
+            echo $formLabel->closeTag();
+        ?></div>
+        <?php
+            $subject = $form->get('name');
+            echo $formLabel->openTag() . $subject->getOption('label');
+            $subject->setvalue($row['name']);  
+            echo $this->formInput($subject);
+            echo $this->formElementErrors($subject);
+            echo $formLabel->closeTag();
+        ?></div>
+      
+        <?= $this->formElement($form->get('send')) ?>
+        <?= $this->form()->closeTag(); ?>   
+        </div> 
+    
+   </div>
+</div>
